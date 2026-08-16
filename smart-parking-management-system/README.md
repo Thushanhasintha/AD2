@@ -1,3 +1,7 @@
+<img width="1902" height="966" alt="Screenshot 2026-08-16 164852" src="https://github.com/user-attachments/assets/d22bd737-283f-4fee-8864-8212de36baae" />
+
+
+
 # Smart Parking Management System (SPMS)
 
 Microservice-based backend application for ITS 1018 – Software Architectures & Design Patterns II.
