@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/smart-parking-management-system/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smart-parking-management-system/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smart-parking-management-system/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smart-parking-management-system/parking-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smart-parking-management-system/payment-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smart-parking-management-system/user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smart-parking-management-system/vehicle-service/src/main/java" charset="UTF-8" />
+  </component>
+</project>

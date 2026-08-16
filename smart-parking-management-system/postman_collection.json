@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "Smart Parking Management System",
+    "_postman_id": "smart-parking-spms-2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key":"gateway","value":"http://localhost:8080"},
+    {"key":"userId","value":"1"},
+    {"key":"vehicleId","value":"1"},
+    {"key":"spaceId","value":"1"},
+    {"key":"paymentId","value":"1"}
+  ],
+  "item": [
+    {
+      "name":"Users",
+      "item":[
+        {"name":"Register User","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"name\":\"Thushan\",\"email\":\"thushan@example.com\",\"password\":\"1234\",\"phone\":\"0771234567\",\"role\":\"DRIVER\"}"},"url":{"raw":"{{gateway}}/api/users","host":["{{gateway}}"],"path":["api","users"]}}},
+        {"name":"Get Users","request":{"method":"GET","url":{"raw":"{{gateway}}/api/users","host":["{{gateway}}"],"path":["api","users"]}}},
+        {"name":"Get User","request":{"method":"GET","url":{"raw":"{{gateway}}/api/users/{{userId}}","host":["{{gateway}}"],"path":["api","users","{{userId}}"]}}},
+        {"name":"Login","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"email\":\"thushan@example.com\",\"password\":\"1234\"}"},"url":{"raw":"{{gateway}}/api/users/login","host":["{{gateway}}"],"path":["api","users","login"]}}}
+      ]
+    },
+    {
+      "name":"Vehicles",
+      "item":[
+        {"name":"Register Vehicle","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"userId\":1,\"vehicleNumber\":\"CAB-1234\",\"vehicleType\":\"CAR\",\"brand\":\"Toyota\",\"model\":\"Prius\",\"color\":\"White\"}"},"url":{"raw":"{{gateway}}/api/vehicles","host":["{{gateway}}"],"path":["api","vehicles"]}}},
+        {"name":"Get Vehicles","request":{"method":"GET","url":{"raw":"{{gateway}}/api/vehicles","host":["{{gateway}}"],"path":["api","vehicles"]}}},
+        {"name":"Vehicle Entry","request":{"method":"POST","url":{"raw":"{{gateway}}/api/vehicles/{{vehicleId}}/entry","host":["{{gateway}}"],"path":["api","vehicles","{{vehicleId}}","entry"]}}},
+        {"name":"Vehicle Exit","request":{"method":"POST","url":{"raw":"{{gateway}}/api/vehicles/{{vehicleId}}/exit","host":["{{gateway}}"],"path":["api","vehicles","{{vehicleId}}","exit"]}}}
+      ]
+    },
+    {
+      "name":"Parking",
+      "item":[
+        {"name":"Create Parking Space","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"ownerId\":1,\"spaceNumber\":\"A-01\",\"location\":\"Colombo City Centre\",\"city\":\"Colombo\",\"zone\":\"Zone-A\",\"pricePerHour\":200,\"status\":\"AVAILABLE\"}"},"url":{"raw":"{{gateway}}/api/parking/spaces","host":["{{gateway}}"],"path":["api","parking","spaces"]}}},
+        {"name":"All Spaces","request":{"method":"GET","url":{"raw":"{{gateway}}/api/parking/spaces","host":["{{gateway}}"],"path":["api","parking","spaces"]}}},
+        {"name":"Available Spaces","request":{"method":"GET","url":{"raw":"{{gateway}}/api/parking/spaces/available","host":["{{gateway}}"],"path":["api","parking","spaces","available"]}}},
+        {"name":"Search By City","request":{"method":"GET","url":{"raw":"{{gateway}}/api/parking/spaces/city/Colombo","host":["{{gateway}}"],"path":["api","parking","spaces","city","Colombo"]}}},
+        {"name":"Reserve Space","request":{"method":"POST","url":{"raw":"{{gateway}}/api/parking/spaces/{{spaceId}}/reserve","host":["{{gateway}}"],"path":["api","parking","spaces","{{spaceId}}","reserve"]}}},
+        {"name":"Release Space","request":{"method":"POST","url":{"raw":"{{gateway}}/api/parking/spaces/{{spaceId}}/release","host":["{{gateway}}"],"path":["api","parking","spaces","{{spaceId}}","release"]}}}
+      ]
+    },
+    {
+      "name":"Payments",
+      "item":[
+        {"name":"Make Payment","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"reservationId\":1,\"userId\":1,\"amount\":400,\"paymentMethod\":\"MOCK_CARD\"}"},"url":{"raw":"{{gateway}}/api/payments","host":["{{gateway}}"],"path":["api","payments"]}}},
+        {"name":"Get Payment","request":{"method":"GET","url":{"raw":"{{gateway}}/api/payments/{{paymentId}}","host":["{{gateway}}"],"path":["api","payments","{{paymentId}}"]}}},
+        {"name":"Receipt","request":{"method":"GET","url":{"raw":"{{gateway}}/api/payments/{{paymentId}}/receipt","host":["{{gateway}}"],"path":["api","payments","{{paymentId}}","receipt"]}}}
+      ]
+    }
+  ]
+}

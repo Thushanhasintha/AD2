@@ -1,0 +1,1 @@
+Save your real Eureka dashboard screenshot here as eureka_dashboard.png after all services are registered.
